@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = (props) => {
               :
               <div>
                 <button className='liked-posts-btn' style={{display:'flex',marginBottom: '1em'}} onClick={() => props.setShowLiked(!props.showLiked)}>View All Posts</button>
-                <div style={{fontSize:'30px'}}>Liked Posts</div>
+                <div style={{fontSize:'30px'}}><strong>Liked Posts</strong></div>
               </div>
             }
       </div>

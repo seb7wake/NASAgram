@@ -5,7 +5,7 @@
 }
 
 .App {
-    font-family: 'Myriad';
+    font-family: 'Roboto', sans-serif;
     background-color:'#E8E8E8';
 }
 
@@ -119,14 +119,35 @@
 
 .title {
     font-size: 40px; 
-    font-family:'Myriad';
     text-align:left;
     margin-top:10px;
 }
 
 .sub-title {
     font-size: 18px; 
-    font-family:'Myriad';
     color:#B8B8B8;
     text-align:left;
+}
+
+.card-content {
+    text-align: left;
+    font-size: 16px;
+    margin-left:3em;
+    margin-right: 2em;
+    line-height: 1.7em;
+}
+
+.my-anchor-css-class {
+    color:grey;
+}
+
+.card-title-container {
+    display:flex; 
+    text-align: left;
+    align-items: center;
+    font-size: 20px;
+    margin-left:25px; 
+    margin-bottom:0.6em; 
+    margin-right:25px;
+    margin-top: 20px;
 }

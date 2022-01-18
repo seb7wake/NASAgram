@@ -1,5 +1,6 @@
 import React from 'react';
 import Like from './Like';
+import ShowMoreText from "react-show-more-text";
 
 type CardProps = {
     key: string;
@@ -17,7 +18,6 @@ const CardStyle = {
     paddingBottom: '3em',
     marginBottom: '2em',
     width: '40em', 
-    // justifyContent:'center', 
     backgroundColor: 'white',
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
 }
@@ -31,21 +31,17 @@ const Card: React.FC<CardProps> = (props) => {
 
     const onLike = (date: string) => {
         let saved = localStorage.getItem("likes")
-        console.log('start:', saved)
         if (saved != '[]' && saved != null) {
             let set = JSON.parse(saved)
             let newSet = new Set<string>(set)
             newSet.add(date)
             props.setLikes(newSet)
-            console.log('adding to storage1', newSet)
             localStorage.setItem("likes", JSON.stringify([...newSet]))
         } else {
             let newSet = new Set<string>([date])
             props.setLikes(newSet)
-            console.log('adding to storage2', newSet, JSON.stringify(newSet))
             localStorage.setItem("likes", JSON.stringify([...newSet]))
         }
-        console.log('storage:', localStorage.getItem("likes"))
     }
 
     const onUnlike = (date:string) => {
@@ -64,12 +60,22 @@ const Card: React.FC<CardProps> = (props) => {
             <div>
                 <img style={PhotoStyle} src={props.url} alt={props.title}/>
                 <br/>
-                <div style={{display:'flex', textAlign: 'left', alignItems:'center', fontSize: '20px', marginLeft:'25px', marginTop: '20px'}}>
+                <div className={'card-title-container'}>
                     <Like onLike={onLike} onUnlike={onUnlike} date={props.date} liked={props.liked}/>
-                    <div style={{marginLeft:'5px'}}>{props.title} - <span style={{fontSize:'18px', paddingBottom:'10px'}}>{props.date}</span></div>
+                    <div style={{marginLeft:'7px',wordWrap: 'break-word'}}>{props.title} - {props.date}
+                    </div>
                 </div>
-                <br />
-                <div style={{textAlign: 'left', fontSize: '16px', marginLeft:'3em', marginRight: '3em'}}>{props.explanation}</div>
+                <ShowMoreText
+                    lines={6}
+                    more="Show more"
+                    less="Show less"
+                    className="card-content"
+                    anchorClass="my-anchor-css-class"
+                    expanded={false}
+                    truncatedEndingComponent={"... "}
+                >
+                    <div >{props.explanation}</div>
+                </ShowMoreText>
             </div>
         </div>
     )

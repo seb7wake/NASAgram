@@ -114,17 +114,21 @@ const Home: React.FC = () => {
                 {loading ?
                 <Loading />
                 :
-                photoData.map((item: any, i: number) => 
-                    <Card 
-                        key={i.toString()} 
-                        url={item.url} 
-                        setLikes={setLikes} 
-                        title={item.title} 
-                        liked={likes.has(item.date)} 
-                        explanation={item.explanation} 
-                        date={item.date}
-                    />
-                )}
+                photoData.length > 0 ?
+                    photoData.map((item: any, i: number) => 
+                        <Card 
+                            key={i.toString()} 
+                            url={item.url} 
+                            setLikes={setLikes} 
+                            title={item.title} 
+                            liked={likes.has(item.date)} 
+                            explanation={item.explanation} 
+                            date={item.date}
+                        />
+                    )
+                    :
+                    <div style={{height:'100vh', fontSize:'20px', marginTop:'100px'}}>No liked posts yet...</div>
+                }
             </div>
         )
     }
