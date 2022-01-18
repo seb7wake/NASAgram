@@ -14,11 +14,12 @@ type CardProps = {
 const CardStyle = {
     display: 'flex',
     borderRadius: '15px',
-    paddingBottom: '2em',
+    paddingBottom: '3em',
     marginBottom: '2em',
     width: '40em', 
     // justifyContent:'center', 
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
 }
 
 const PhotoStyle = {
@@ -63,11 +64,12 @@ const Card: React.FC<CardProps> = (props) => {
             <div>
                 <img style={PhotoStyle} src={props.url} alt={props.title}/>
                 <br/>
-                <div style={{textAlign: 'left', fontSize: '20px', marginLeft:'15px', marginTop: '25px'}}>{props.title} - <span style={{fontSize:'15px'}}>{props.date}</span></div>
+                <div style={{display:'flex', textAlign: 'left', alignItems:'center', fontSize: '20px', marginLeft:'25px', marginTop: '20px'}}>
+                    <Like onLike={onLike} onUnlike={onUnlike} date={props.date} liked={props.liked}/>
+                    <div style={{marginLeft:'5px'}}>{props.title} - <span style={{fontSize:'18px', paddingBottom:'10px'}}>{props.date}</span></div>
+                </div>
                 <br />
-                <div style={{textAlign: 'left', fontSize: '16px', marginLeft:'15px', marginRight: '15px'}}>{props.explanation}</div>
-                <br />
-                <Like onLike={onLike} onUnlike={onUnlike} date={props.date} liked={props.liked}/>
+                <div style={{textAlign: 'left', fontSize: '16px', marginLeft:'3em', marginRight: '3em'}}>{props.explanation}</div>
             </div>
         </div>
     )

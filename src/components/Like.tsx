@@ -22,7 +22,7 @@ const Like: React.FC<LikeProps> = (props) => {
     }
     return (
         <button className='like-button' onClick={click}>
-            <img style={{width: '40px'}}src={liked? require('../Icons/heart.png') : require('../Icons/empty-heart.png')} />
+            <img style={{width: '35px'}} src={liked? require('../Icons/heart.png') : require('../Icons/empty-heart.png')} />
         </button>
     )
 }

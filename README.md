@@ -1,46 +1,23 @@
-# Getting Started with Create React App
+# NASAgram
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React project is an instagram-like feed based on NASA's Astronomy Picture of the DAY (APOD) API where users
+can like posts and filter them by date.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+The list of added features in this project includes:
+1. Tracking of liked posts and functionality to display all the users liked posts
+2. Date range filter feature where the user can view pictures in a given date range using a calendar
+3. Loading state while we wait to load pictures from NASA'S API
+4. Animated like button
 
-### `npm start`
+### Liked Posts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The user can "like" and "unlike" a post by pressing on the heart icon on every post. Liking a post
+will save it to local storage where it is kept for future reference. The user can then press the "View Liked Posts"
+button and then this will display every post teh user has liked in the past.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Date Range Filter
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Pressing the "Filter Dates" button at the top will display a calendar where the user can select any number of dates
+in a given range. If teh suer wishes to view more past posts, they can simply continue scrolling and older posts will load.
