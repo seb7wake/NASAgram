@@ -1,7 +1,7 @@
 # NASAgram
 
 This React project is an instagram-like feed based on NASA's Astronomy Picture of the DAY (APOD) API where users
-can like posts and filter them by date.
+can like posts and filter them by date. The hosed site can be viewed here: https://nasagram-apod.netlify.app/
 
 ## Features
 
