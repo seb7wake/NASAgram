@@ -18,7 +18,8 @@ const Home: React.FC = () => {
   const [startDate, setStartDate] = React.useState<Date>(pastDate)
   const [likes, setLikes] = React.useState<Set<Date | string>>(new Set())
   let url =
-    'https://api.nasa.gov/planetary/apod?api_key=ZThbPNfTaibKIjhy91qH2NKqX0gG3zEZZZVZeHIg'
+    'https://api.nasa.gov/planetary/apod?api_key' +
+    process.env.REACT_APP_NASA_API_KEY
 
   const HomeStyle = {
     display: 'flex',
@@ -27,6 +28,9 @@ const Home: React.FC = () => {
     backgroundColor: '#F0F0F0',
   }
 
+  /**
+   * Switch between showing liked photos and all photos
+   */
   React.useEffect(() => {
     if (showLiked) {
       setPhotoData([])
@@ -37,6 +41,9 @@ const Home: React.FC = () => {
     }
   }, [showLiked])
 
+  /**
+   * Sets likes state to the likes value in local storage
+   */
   React.useEffect(() => {
     let saved = localStorage.getItem('likes')
     if (saved != '[]' && saved != null) {
@@ -46,6 +53,11 @@ const Home: React.FC = () => {
     }
   }, [])
 
+  /**
+   * Fetches 8 most recent photos from NASA's API
+   * @param startVal
+   * @param endVal
+   */
   async function fetchPhoto(startVal: Date | null, endVal: Date | null) {
     setLoading(true)
     let start = ''
@@ -83,6 +95,9 @@ const Home: React.FC = () => {
     setLoading(false)
   }
 
+  /**
+   * Fetch all liked photos from NASA API
+   */
   async function fetchLikedPhotos() {
     setLoading(true)
     let photos = []
@@ -97,6 +112,9 @@ const Home: React.FC = () => {
     setLoading(false)
   }
 
+  /**
+   * Refreshes the list of posts by adding another 8 when the user scrolls down too far.
+   */
   async function refresh() {
     let newStart = startDate
     newStart.setDate(newStart.getDate() - 8)
@@ -128,6 +146,9 @@ const Home: React.FC = () => {
     )
   }
 
+  /**
+   * Displays a list of liked posts or a loading state.
+   */
   const displayLikedPhotos = () => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -166,6 +187,9 @@ const Home: React.FC = () => {
     )
   }
 
+  /**
+   * Displays a list of the most recent pictures or more if filtered by date.
+   */
   const displayAllPhotos = () => {
     return (
       <div>

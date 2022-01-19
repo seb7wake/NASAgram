@@ -28,6 +28,10 @@ const PhotoStyle = {
 }
 
 const Card: React.FC<CardProps> = (props) => {
+  /**
+   * Saves to local storage and updates state when a post is liked
+   * @param date
+   */
   const onLike = (date: string) => {
     let saved = localStorage.getItem('likes')
     if (saved != '[]' && saved != null) {
@@ -43,6 +47,10 @@ const Card: React.FC<CardProps> = (props) => {
     }
   }
 
+  /**
+   * Saves to local storage and state when a post is unliked
+   * @param date
+   */
   const onUnlike = (date: string) => {
     let saved = localStorage.getItem('likes')
     if (saved) {

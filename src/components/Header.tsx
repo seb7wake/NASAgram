@@ -16,14 +16,18 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = (props) => {
   const [showCalendar, setShowCalendar] = React.useState(false)
-  const minDate = new Date('1995-06-16')
-  const maxDate = new Date()
+  const minDate = new Date('1995-06-16') // min date on calendar
+  const maxDate = new Date() // max date on calendar
   let selectionRange = {
     startDate: new Date(props.startDate),
     endDate: new Date(props.endDate),
     key: 'selection',
   }
 
+  /**
+   * handles the calendar date range selection and fetches new data
+   * @param ranges
+   */
   const handleSelect = (ranges: any) => {
     ranges.selection.endDate =
       ranges.selection.endDate > maxDate ? maxDate : ranges.selection.endDate
@@ -37,6 +41,9 @@ const Header: React.FC<HeaderProps> = (props) => {
     props.fetch(ranges.selection.startDate, ranges.selection.endDate)
   }
 
+  /**
+   * Returns Calendar and liked posts buttons
+   */
   const getCalendar = () => {
     return showCalendar ? (
       <div style={{ marginBottom: '2em' }}>
@@ -73,6 +80,9 @@ const Header: React.FC<HeaderProps> = (props) => {
     )
   }
 
+  /**
+   * Returns "filter dates" button
+   */
   const getFilterButton = () => {
     return (
       <div style={{ display: 'flex', marginBottom: '2em' }}>
