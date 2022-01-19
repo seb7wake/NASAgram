@@ -93,7 +93,7 @@ const Header: React.FC<HeaderProps> = (props) => {
   }
 
   return (
-    <div style={{ backgroundColor: '#F0F0F0', width: '40em' }}>
+    <header style={{ backgroundColor: '#F0F0F0', width: '40em' }}>
       <div className={'title'}>
         <strong>NASAgram</strong>
       </div>
@@ -115,7 +115,7 @@ const Header: React.FC<HeaderProps> = (props) => {
           </div>
         </div>
       )}
-    </div>
+    </header>
   )
 }
 
