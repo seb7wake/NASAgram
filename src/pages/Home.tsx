@@ -18,7 +18,7 @@ const Home: React.FC = () => {
   const [startDate, setStartDate] = React.useState<Date>(pastDate)
   const [likes, setLikes] = React.useState<Set<Date | string>>(new Set())
   let url =
-    'https://api.nasa.gov/planetary/apod?api_key' +
+    'https://api.nasa.gov/planetary/apod?api_key=' +
     process.env.REACT_APP_NASA_API_KEY
 
   const HomeStyle = {
