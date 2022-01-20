@@ -21,13 +21,6 @@ const Home: React.FC = () => {
     'https://api.nasa.gov/planetary/apod?api_key=' +
     process.env.REACT_APP_NASA_API_KEY
 
-  const HomeStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F0F0F0',
-  }
-
   /**
    * Switch between showing liked photos and all photos
    */
@@ -54,6 +47,20 @@ const Home: React.FC = () => {
   }, [])
 
   /**
+   * Converts date to a date string (yyyy-mm-dd)
+   * @param date
+   */
+  const dateToString = (date: Date) => {
+    return (
+      date.getFullYear() +
+      '-' +
+      ('0' + (date.getMonth() + 1)).slice(-2) +
+      '-' +
+      ('0' + date.getDate()).slice(-2)
+    )
+  }
+
+  /**
    * Fetches 8 most recent photos from NASA's API
    * @param startVal
    * @param endVal
@@ -63,31 +70,11 @@ const Home: React.FC = () => {
     let start = ''
     let end = ''
     if (startVal && endVal) {
-      start =
-        startVal.getFullYear() +
-        '-' +
-        ('0' + (startVal.getMonth() + 1)).slice(-2) +
-        '-' +
-        ('0' + startVal.getDate()).slice(-2)
-      end =
-        endVal.getFullYear() +
-        '-' +
-        ('0' + (endVal.getMonth() + 1)).slice(-2) +
-        '-' +
-        ('0' + endVal.getDate()).slice(-2)
+      start = dateToString(startVal)
+      end = dateToString(endVal)
     } else {
-      start =
-        startDate.getFullYear() +
-        '-' +
-        ('0' + (startDate.getMonth() + 1)).slice(-2) +
-        '-' +
-        ('0' + startDate.getDate()).slice(-2)
-      end =
-        endDate.getFullYear() +
-        '-' +
-        ('0' + (endDate.getMonth() + 1)).slice(-2) +
-        '-' +
-        ('0' + endDate.getDate()).slice(-2)
+      start = dateToString(startDate)
+      end = dateToString(endDate)
     }
     const res = await fetch(url + '&start_date=' + start + '&end_date=' + end)
     const data = await res.json()
@@ -119,18 +106,8 @@ const Home: React.FC = () => {
     let newStart = startDate
     newStart.setDate(newStart.getDate() - 8)
     setStartDate(newStart)
-    let start =
-      startDate.getFullYear() +
-      '-' +
-      ('0' + (startDate.getMonth() + 1)).slice(-2) +
-      '-' +
-      ('0' + startDate.getDate()).slice(-2)
-    let end =
-      endDate.getFullYear() +
-      '-' +
-      ('0' + (endDate.getMonth() + 1)).slice(-2) +
-      '-' +
-      ('0' + endDate.getDate()).slice(-2)
+    let start = dateToString(startDate)
+    let end = dateToString(endDate)
     const res = await fetch(url + '&start_date=' + start + '&end_date=' + end)
     const data = await res.json()
     setPhotoData(data.reverse())
@@ -222,7 +199,7 @@ const Home: React.FC = () => {
   }
 
   return (
-    <div style={HomeStyle}>
+    <div className={'container'}>
       {showLiked ? (
         displayLikedPhotos()
       ) : (

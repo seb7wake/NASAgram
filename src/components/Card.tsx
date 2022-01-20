@@ -87,7 +87,7 @@ const Card: React.FC<CardProps> = (props) => {
           expanded={false}
           truncatedEndingComponent={'... '}
         >
-          <div>{props.explanation}</div>
+          <p>{props.explanation}</p>
         </ShowMoreText>
       </div>
     </div>
