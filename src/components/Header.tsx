@@ -121,7 +121,7 @@ const Header: React.FC<HeaderProps> = (props) => {
           <div
             style={{
               fontSize: '30px',
-              marginRight: '7.2%',
+              marginRight: '10.6%',
               alignItems: 'center',
               justifyContent: 'center',
             }}
@@ -136,7 +136,7 @@ const Header: React.FC<HeaderProps> = (props) => {
             }}
             onClick={() => props.setShowLiked(!props.showLiked)}
           >
-            Back to All Posts
+            Back to Home
           </button>
         </div>
       )}
