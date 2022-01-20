@@ -112,17 +112,32 @@ const Header: React.FC<HeaderProps> = (props) => {
       {!props.showLiked ? (
         getCalendar()
       ) : (
-        <div style={{ display: 'flex' }}>
-          <button
-            className="liked-posts-btn"
-            style={{ display: 'flex', marginBottom: '1em' }}
-            onClick={() => props.setShowLiked(!props.showLiked)}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'end',
+          }}
+        >
+          <div
+            style={{
+              fontSize: '30px',
+              marginRight: '7.2%',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
           >
-            View All Posts
-          </button>
-          <div style={{ fontSize: '30px', marginLeft: '9.5%' }}>
             Liked Posts
           </div>
+          <button
+            className="liked-posts-btn-2"
+            style={{
+              display: 'flex',
+              marginBottom: '1em',
+            }}
+            onClick={() => props.setShowLiked(!props.showLiked)}
+          >
+            Back to All Posts
+          </button>
         </div>
       )}
     </header>
