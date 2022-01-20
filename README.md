@@ -15,9 +15,8 @@ The list of added features in this project includes:
 
 The user can "like" and "unlike" a post by pressing on the heart icon on every post. Liking a post
 will save it to local storage where it is kept for future reference. The user can then press the "View Liked Posts"
-button and then this will display every post teh user has liked in the past.
+button and then this will display every post the user has liked in the past.
 
 ### Date Range Filter
 
-Pressing the "Filter Dates" button at the top will display a calendar where the user can select any number of dates
-in a given range. If teh suer wishes to view more past posts, they can simply continue scrolling and older posts will load.
+Pressing the "Filter Dates" button at the top will display a calendar where the user can select any range of dates. If the user wishes to view more past posts, they can simply continue scrolling and older posts will load.
